@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	>
+<head>
+<meta charset="ISO-8859-1">
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+<!-- Boxicons CDN Link -->
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
+	rel='stylesheet'>
+<title>Inserte Rol</title>
+</head>
+<body>
+
+<div >
+    <table class="table table-striped table-dark">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>nombre</th>
+            <th>apellido</th>
+			
+            
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="cliente  : ${usuarios}">
+            <td th:text="${cliente.id}"> </td>
+            <td th:text="${cliente.nombre}"> </td>
+            <td th:text="${cliente.apellido}"> </td>
+            
+           
+        </tr>
+        </tbody>
+        </table>
+</div>
+
+
+
+</body>
+</html>

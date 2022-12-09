@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+          crossorigin="anonymous" />
+</head>
+<body>
+<!-- Main Navigation -->
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Artemisa Sistem</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item" sec:authorize="hasRole('ROLE_ANONYMOUS')">
+                    <a th:href="@{|/register|}" class="nav-link active" aria-current="page" >Register</a>
+                </li>
+                <li class="nav-item" sec:authorize="hasRole('ROLE_ANONYMOUS')">
+                    <a th:href="@{|/login|}" class="nav-link active" aria-current="page" >Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+               
+                
+
+                <li sec:authorize="isAuthenticated()" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Roles
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" th:href="@{/Rols}">Roles</a></li>
+                      
+                    </ul>
+                </li>
+
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <!-- Content Section -->
+            <section layout:fragment="content">
+                <p>This is filled by the content template.</p>
+            </section>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="container py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-muted">&copy; 2022 Business Name. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<section layout:fragment="addjs">
+</section>
+</body>
+</html>
