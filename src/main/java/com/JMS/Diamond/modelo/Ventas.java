@@ -47,7 +47,7 @@ public class Ventas implements Serializable {
    
     @ManyToOne
     @JoinColumn(name = "id", referencedColumnName = "id")
-    private Usuario usuario;
+    private Usuario usuarios;
     
 
     
@@ -58,8 +58,9 @@ public class Ventas implements Serializable {
 
 
 
+
 	public Ventas(Long id_venta, int cantidad, String fechaVenta, String horaVenta, double valorTotalVenta,
-			Categorias categoria, Productos productos, Usuario usuario) {
+			Categorias categoria, Productos productos, Usuario usuarios) {
 		super();
 		this.id_venta = id_venta;
 		this.cantidad = cantidad;
@@ -68,8 +69,11 @@ public class Ventas implements Serializable {
 		this.valorTotalVenta = valorTotalVenta;
 		this.categoria = categoria;
 		this.productos = productos;
-		this.usuario = usuario;
+		this.usuarios = usuarios;
 	}
+
+
+
 
 
 
@@ -82,7 +86,7 @@ public class Ventas implements Serializable {
 	public void setId_venta(Long id_venta) {
 		this.id_venta = id_venta;
 	}
-
+ 
 
 
 	public int getCantidad() {
@@ -158,14 +162,18 @@ public class Ventas implements Serializable {
 
 
 	public Usuario getUsuarios() {
-		return usuario;
+		return usuarios;
 	}
 
 
 
-	public void setUsuarios(Usuario usuario) {
-		this.usuario = usuario;
+	public void setUsuarios(Usuario usuarios) {
+		this.usuarios = usuarios;
 	}
+
+
+
+	
 
 	
 

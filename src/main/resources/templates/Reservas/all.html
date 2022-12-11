@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	>
+<head>
+<meta charset="ISO-8859-1">
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+<!-- Boxicons CDN Link -->
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
+	rel='stylesheet'>
+<title>Lista de Reservas</title>
+</head>
+<body>
+
+<div>
+<a class="btn btn-warning" th:href="@{/reservas/new} " >Nueva</a>
+</div>
+
+<div >
+    <table class="table table-striped table-dark">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Cantidad</th>
+            <th>Fecha de Reserva</th>
+			<th>Hora de la Reserva</th>
+            <th>Valor Total de la Reserva</th>
+            <th>Categoria</th>
+            <th>Producto</th>
+            <th>Usuario</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="r  : ${reserva}">
+            <td th:text="${r.id_reserva}"> </td>
+            <td th:text="${r.cantidad}"> </td>
+            <td th:text="${r.fechaVenta}"> </td>
+            <td th:text="${r.horaVenta}"> </td>
+            <td th:text="${r.ValorTotalVenta}"> </td>
+            <td th:text="${r.categoria.id_categoria}"> </td>
+            <td th:text="${r.productos.id_producto}"> </td>
+            <td th:text="${r.usuarios.id}"> </td>
+           <td>
+                <a class="btn btn-info" th:href="@{/reservas/update/{id}(id=${reserva.id_reserva})} " >Edit</a>
+            </td>
+            <td>
+                <a class="btn btn-danger" th:href="@{/reservas/delete/{id}(id=${reserva.id_reserva})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+        </table>
+</div>
+
+
+
+
+</body>
+</html>

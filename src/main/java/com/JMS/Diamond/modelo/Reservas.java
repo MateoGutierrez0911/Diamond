@@ -44,14 +44,14 @@ public class Reservas implements Serializable{
   
     @ManyToOne
     @JoinColumn(name = "id", referencedColumnName = "id")
-    private Usuario usuario;
+    private Usuario usuarios;
     
     public Reservas() {
 		
 	}
 
 	public Reservas(Long id_reserva, int cantidad, String fechaVenta, String horaVenta, double valorTotalVenta,
-			Categorias categoria, Productos productos, Usuario usuario) {
+			Categorias categoria, Productos productos, Usuario usuarios) {
 		super();
 		this.id_reserva = id_reserva;
 		this.cantidad = cantidad;
@@ -60,9 +60,10 @@ public class Reservas implements Serializable{
 		this.valorTotalVenta = valorTotalVenta;
 		this.categoria = categoria;
 		this.productos = productos;
-		this.usuario = usuario;
+		this.usuarios = usuarios;
 	}
 
+	
 	public Long getId_reserva() {
 		return id_reserva;
 	}
@@ -120,12 +121,13 @@ public class Reservas implements Serializable{
 	}
 
 	public Usuario getUsuarios() {
-		return usuario;
+		return usuarios;
 	}
 
 	public void setUsuarios(Usuario usuarios) {
-		this.usuario = usuarios;
+		this.usuarios = usuarios;
 	}
+
 
 	
 }

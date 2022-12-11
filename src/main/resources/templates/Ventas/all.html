@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	>
+<head>
+<meta charset="ISO-8859-1">
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+<!-- Boxicons CDN Link -->
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
+	rel='stylesheet'>
+<title>Lista de Ventas</title>
+</head>
+<body>
+
+
+<div>
+<a class="btn btn-warning" th:href="@{/ventas/new} " >Nueva</a>
+</div>
+
+<div >
+    <table class="table table-striped table-dark">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Fecha de registro</th>
+            <th>Nombre del producto</th>
+			<th>Precio del producto</th>
+            <th>Cantidad Disponible</th>
+            <th>Fecha de vencimiento</th>
+            <th>Categoria</th>
+            <th>Categoria</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="v  : ${venta}">
+            <td th:text="${v.cantidad}"> </td>
+            <td th:text="${v.fechaVenta}"> </td>
+            <td th:text="${v.horaVenta}"> </td>
+            <td th:text="${v.ValorTotalVenta}"> </td>
+            <td th:text="${v.categoria.id_categoria}"> </td>
+            <td th:text="${v.productos.id_producto}"> </td>
+            <td th:text="${v.usuarios.id}"> </td>
+           <td>
+                <a class="btn btn-info" th:href="@{/ventas/update/{id}(id=${venta.id_venta})} " >Edit</a>
+            </td>
+            <td>
+                <a class="btn btn-danger" th:href="@{/ventas/delete/{id}(id=${venta.id_venta})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+        </table>
+</div>
+
+
+
+</body>
+</html>

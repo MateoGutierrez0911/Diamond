@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/Layout">
+
+
+<head >
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" th:href="@{/assets/diamante.ico}" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link th:href="@{/css/styles.css}" rel="stylesheet" />
+<th:block layout:fragment="head">
+    </th:block>
+</head>
+<body>
+
+			<!-- Page content-->
+			<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <!-- Content Section -->
+            <section layout:fragment="content">
+                <p>This is filled by the content template.</p>
+            </section>
+        </div>
+    </div>
+</div>
+		
+	<!-- Bootstrap core JS-->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<!-- Core theme JS-->
+	<script th:src="@{/js/scripts.js}"></script>
+
+
+	<!--OTRO SCRIPTS PARA PAGINAS-->
+	<th:block layout:fragment="page-scripts">
+
+	</th:block>
+</body>
+</html>

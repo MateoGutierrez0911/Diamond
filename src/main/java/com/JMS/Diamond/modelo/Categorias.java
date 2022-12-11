@@ -25,10 +25,10 @@ public class Categorias  implements Serializable{
     private String nombre_cate;
     
     @Column(name = "descripccion_cate")
-    private String descripccionCategoria;
+    private String descripcion_categoria;
     
     @Column(name = "tipo_categoria")
-    private String tipoCategoria;
+    private String tipo_categoria;
     
 
   
@@ -38,12 +38,12 @@ public class Categorias  implements Serializable{
 
 
 
-	public Categorias(Long id_categoria, String nombre_cate, String descripccionCategoria, String tipoCategoria) {
+	public Categorias(Long id_categoria, String nombre_cate, String descripcion_categoria, String tipo_categoria) {
 		super();
 		this.id_categoria = id_categoria;
 		this.nombre_cate = nombre_cate;
-		this.descripccionCategoria = descripccionCategoria;
-		this.tipoCategoria = tipoCategoria;
+		this.descripcion_categoria = descripcion_categoria;
+		this.tipo_categoria = tipo_categoria;
 	}
 
 
@@ -72,27 +72,30 @@ public class Categorias  implements Serializable{
 
 
 
-	public String getDescripccionCategoria() {
-		return descripccionCategoria;
+	public String getDescripcion_categoria() {
+		return descripcion_categoria;
 	}
 
 
 
-	public void setDescripccionCategoria(String descripccionCategoria) {
-		this.descripccionCategoria = descripccionCategoria;
+	public void setDescripcion_categoria(String descripcion_categoria) {
+		this.descripcion_categoria = descripcion_categoria;
 	}
 
 
 
-	public String getTipoCategoria() {
-		return tipoCategoria;
+	public String getTipo_categoria() {
+		return tipo_categoria;
 	}
 
 
 
-	public void setTipoCategoria(String tipoCategoria) {
-		this.tipoCategoria = tipoCategoria;
+	public void setTipo_categoria(String tipo_categoria) {
+		this.tipo_categoria = tipo_categoria;
 	}
+
+
+
 
 
     

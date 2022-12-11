@@ -52,6 +52,10 @@ public class EstilosControl {
 	public String clientes() {
 		return "Cliente/all";
 	}
+	@GetMapping("@{/cliente/new}")
+	public String editarCliente() {
+		return "Cliente/edit";
+	}
 	
 	@GetMapping("/Roles/Rols")
 	public String Roles() {
@@ -115,6 +119,96 @@ public class EstilosControl {
 	}
 
 	
+	
+	
+	
+
+	
+	@GetMapping("@{reservas/all}")
+	public String listaReservas() {
+		return "Reservas/all";
+	}
+	
+	
+	@GetMapping("@{reservas/new")
+	public String nuevaReserva () {
+	return "Reservas/new";
+}
+	
+	
+	@GetMapping("@{/reservas/delete/{id}")
+	public String deleteReserva() {
+	return "Reservas/all";
+}
+	
+	
+	
+	
+	
+	@GetMapping("@{/ventas/all}")
+	public String listaVentas() {
+		return "Ventas/all";
+	}
+	
+	
+	@GetMapping("@{/ventas/new")
+	public String nuevaVentas () {
+	return "Ventas/new";
+}
+	
+	
+	@GetMapping("@{/ventas/delete/{id}")
+	public String deleteVentas() {
+	return "Ventas/all";
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("@{productos/all}")
+	public String listaProducto() {
+		return "Reservas/all";
+	}
+	
+	
+	@GetMapping("@{productos/new")
+	public String nuevaProducto () {
+	return "Reservas/new";
+}
+	
+	
+	@GetMapping("@{/productos/delete/{id}")
+	public String deleteProducto() {
+	return "Reservas/all";
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("@{categorias/all}")
+	public String listaCategoria() {
+		return "Categorias/all";
+	}
+	@GetMapping("@{/categorias/delete/{id}")
+	public String deleteCategoria() {
+	return "Categorias/all";
+}
+	@GetMapping("@{categorias/new")
+	public String nuevaCategoria () {
+	return "Categorias/new";
+}
 	
 	
 }
