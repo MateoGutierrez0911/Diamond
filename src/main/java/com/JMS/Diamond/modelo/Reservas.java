@@ -1,6 +1,6 @@
 package com.JMS.Diamond.modelo;
 
-import java.io.Serializable;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,12 +13,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="reserva")
-public class Reservas implements Serializable{
+public class Reservas {
 
-	private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_reserva")
+
     private Long id_reserva;
     
     @Column (name = "cantidad")
@@ -34,36 +34,34 @@ public class Reservas implements Serializable{
     @Column(name = "valorTotal_reserva")
     private double valorTotalVenta;
     
-    @ManyToOne
-    @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
-    private Categorias categoria;
+    private String direccion;
 
     @ManyToOne
     @JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
     private Productos productos;
   
-    @ManyToOne
-    @JoinColumn(name = "id", referencedColumnName = "id")
-    private Usuario usuarios;
+
     
     public Reservas() {
 		
 	}
 
+    
+
 	public Reservas(Long id_reserva, int cantidad, String fechaVenta, String horaVenta, double valorTotalVenta,
-			Categorias categoria, Productos productos, Usuario usuarios) {
+			String direccion, Productos productos) {
 		super();
 		this.id_reserva = id_reserva;
 		this.cantidad = cantidad;
 		this.fechaVenta = fechaVenta;
 		this.horaVenta = horaVenta;
 		this.valorTotalVenta = valorTotalVenta;
-		this.categoria = categoria;
+		this.direccion = direccion;
 		this.productos = productos;
-		this.usuarios = usuarios;
 	}
 
-	
+
+
 	public Long getId_reserva() {
 		return id_reserva;
 	}
@@ -104,12 +102,12 @@ public class Reservas implements Serializable{
 		this.valorTotalVenta = valorTotalVenta;
 	}
 
-	public Categorias getCategoria() {
-		return categoria;
+	public String getDireccion() {
+		return direccion;
 	}
 
-	public void setCategoria(Categorias categoria) {
-		this.categoria = categoria;
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 
 	public Productos getProductos() {
@@ -120,14 +118,8 @@ public class Reservas implements Serializable{
 		this.productos = productos;
 	}
 
-	public Usuario getUsuarios() {
-		return usuarios;
-	}
 
-	public void setUsuarios(Usuario usuarios) {
-		this.usuarios = usuarios;
-	}
-
-
+    
+    
 	
 }

@@ -13,9 +13,14 @@ public class EstilosControl {
 		return "index";
 	}
 	
-	@GetMapping("/operador")
-	public String operador() {
-		return "operador";
+	@GetMapping("/dashboardCliente")
+	public String dashboardCliente() {
+		return "dashboardCliente";
+	}
+	
+	@GetMapping("/dashboardDomiciliario")
+	public String dashboardDomiciliario() {
+		return "dashboardDomiciliario";
 	}
 	
 	
@@ -144,6 +149,18 @@ public class EstilosControl {
 	
 	
 	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@GetMapping("@{/ventas/all}")
 	public String listaVentas() {
@@ -209,6 +226,31 @@ public class EstilosControl {
 	public String nuevaCategoria () {
 	return "Categorias/new";
 }
+	
+	
+	
+	
+	
+	@GetMapping("@{/productosCliente/all}")
+	public String listasprod() {
+		return "Cliente/productosall";
+	}
+	
+	@GetMapping("/nosotros")
+	public String Nosotros() {
+		return "Cliente/nosotros";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

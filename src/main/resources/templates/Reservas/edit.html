@@ -6,5 +6,133 @@
 </head>
 <body>
 
+<div class="sidebar close">
+		<div class="logo-details">
+			<ion-icon name="diamond-sharp"
+				style="width:40px; height:40px; margin-left:25%; color:white; margin-top:10%;">
+			</ion-icona> <span class="text"></span>
+		</div>
+		<ul class="nav-links">
+		<li><a th:href="@{/index}" style="height:50px;" > <ion-icon name="home" class="iconohome"  ></ion-icon> <span
+					class="link_name">Inicio</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" th:href="@{/index}">Inicio</a></li>
+				</ul></li>
+
+			<li>
+				<div class="iocn-link">
+					<a href="#"> <i class='bx bx-collection'></i> <span
+						class="link_name">Categorias</span>
+					</a> <i class='bx bxs-chevron-down arrow'></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Categorias</a></li>
+					<li><a th:href="@{/categorias/all}">Listado</a></li>
+					<li><a th:href="@{/categorias/new}">Nueva Categoria</a></li>
+				</ul>
+			</li>
+			<li>
+				<div class="iocn-link">
+					<a href="#"> <i class='bx bx-book-alt'></i> <span
+						class="link_name">Productos</span>
+					</a> <i class='bx bxs-chevron-down arrow'></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Productos</a></li>
+					<li><a th:href="@{/productos/all}">Listado</a></li>
+					<li><a th:href="@{/productos/new}">Nuevo Producto</a></li>
+				</ul>
+			</li>
+
+
+			<li>
+				<div class="iocn-link">
+					<a href="#"> <i class='bx bx-grid-alt'></i> <span class="link_name">Reservas</span>
+					</a> <i class='bx bxs-chevron-down arrow'></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Reservas</a></li>
+					<li><a th:href="@{/reservas/all}">Listado</a></li>
+					<li><a th:href="@{/reservas/new}">Nueva Reserva</a></li>
+				</ul>
+			</li>
+			
+				<li>
+				<div class="iocn-link">
+					<a href="#"> <i class='bx bx-collection'></i> <span
+						class="link_name">Ventas</span>
+					</a> <i class='bx bxs-chevron-down arrow'></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Ventas</a></li>
+					<li><a th:href="@{/ventas/all}">Listado</a></li>
+					<li><a th:href="@{/ventas/new}">Nueva Venta</a></li>
+				</ul>
+			</li>
+			
+			<li><a th:href="@{/cliente/all}"> <i class='bx bx-cog'></i> <span
+					class="link_name">Setting</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" th:href="@{/cliente/all}">Setting</a></li>
+				</ul></li>
+			<li>
+				<div class="profile-details">
+				
+					<div class="profile-content">
+					
+						<!--<img src="image/profile.jpg" alt="profileImg">-->
+						<ion-icon class="icono" name="person-circle-sharp"
+							style="width:7opx; height:50px;  margin-left:15%;  "></ion-icon>
+							
+					</div>
+					<div class="name-job">
+						<div class="profile_name">[[${#httpServletRequest.remoteUser}]]</div>
+						<div class="job">Administrador <a class="btn btn-dark" th:href="@{/logout}"><ion-icon name="log-out" ></ion-icon>Log Out</a></div>
+						
+						
+					</div>
+					
+				</div>
+				
+			</li>
+		</ul>
+	</div>
+	<section class="home-section">
+		<div class="home-content">
+			<i class='bx bx-menu'></i> <span class="text"></span>
+		</div>
+		
+	</section>
+	
+	
+	
+	
+	
+	<script>
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e)=>{
+   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+   arrowParent.classList.toggle("showMenu");
+    });
+  }
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".bx-menu");
+  console.log(sidebarBtn);
+  sidebarBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("close");
+  });
+  </script>
+
+	<script type="module"
+		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule
+		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+		
+		
+
+
 </body>
 </html>

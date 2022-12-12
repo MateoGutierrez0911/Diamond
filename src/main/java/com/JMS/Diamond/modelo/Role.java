@@ -2,9 +2,9 @@ package com.JMS.Diamond.modelo;
 
 public enum Role {
 	
-    USER("User"),
-    ADMIN("Admin"),
-	OPERADOR("Operador");
+    USER("USER"),
+    ADMIN("ADMIN"),
+	OPERADOR("DOMICILIARIO");
 
     private final String value;
 

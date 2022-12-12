@@ -36,8 +36,10 @@ public class CustomLoginSucessHandler extends SimpleUrlAuthenticationSuccessHand
 	        if (roles.contains("ROLE_ADMIN")) {
 	            url = "/index";
 	        } else if (roles.contains("ROLE_USER")) {
-	            url = "/index";
-	        } 
+	            url = "/dashboardCliente";
+	        } else if (roles.contains("ROLE_DOMICILIARIO")) {
+	            url = "/dashboardDomiciliario";
+	        }
 	        System.out.println(url);
 	        return url;
 	    }

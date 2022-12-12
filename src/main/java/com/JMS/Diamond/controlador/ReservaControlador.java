@@ -26,7 +26,6 @@ public class ReservaControlador {
 
 	@GetMapping(path = "/reservas/all")
 	public String getReservas(Model model) {
-		List<Reservas> reservas = reservaServicio.ListarReservas();
 		model.addAttribute("reserva", reservaServicio.ListarReservas());
 		return "Reservas/all";
 	}

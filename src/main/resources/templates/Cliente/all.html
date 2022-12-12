@@ -25,6 +25,12 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	>
 			</ion-icona> <span class="text"></span>
 		</div>
 		<ul class="nav-links">
+		<li><a th:href="@{/index}" style="height:50px;" > <ion-icon name="home" class="iconohome"  ></ion-icon> <span
+					class="link_name">Inicio</span>
+			</a>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" th:href="@{/index}">Inicio</a></li>
+				</ul></li>
 
 			<li>
 				<div class="iocn-link">
@@ -34,8 +40,8 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	>
 				</div>
 				<ul class="sub-menu">
 					<li><a class="link_name" href="#">Categorias</a></li>
-					<li><a href="#">Listado</a></li>
-					<li><a href="#">Nueva Categoria</a></li>
+					<li><a th:href="@{/categorias/all}">Listado</a></li>
+					<li><a th:href="@{/categorias/new}">Nueva Categoria</a></li>
 				</ul>
 			</li>
 			<li>
@@ -46,8 +52,8 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	>
 				</div>
 				<ul class="sub-menu">
 					<li><a class="link_name" href="#">Productos</a></li>
-					<li><a href="#">Listado</a></li>
-					<li><a href="#">Nuevo Producto</a></li>
+					<li><a th:href="@{/productos/all}">Listado</a></li>
+					<li><a th:href="@{/productos/new}">Nuevo Producto</a></li>
 				</ul>
 			</li>
 
@@ -59,8 +65,8 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	>
 				</div>
 				<ul class="sub-menu">
 					<li><a class="link_name" href="#">Reservas</a></li>
-					<li><a href="#">Listado</a></li>
-					<li><a href="#">Nueva Reserva</a></li>
+					<li><a th:href="@{/reservas/all}">Listado</a></li>
+					<li><a th:href="@{/reservas/new}">Nueva Reserva</a></li>
 				</ul>
 			</li>
 			
@@ -72,35 +78,36 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	>
 				</div>
 				<ul class="sub-menu">
 					<li><a class="link_name" href="#">Ventas</a></li>
-					<li><a href="#">Listado</a></li>
-					<li><a href="#">Nueva Venta</a></li>
+					<li><a th:href="@{/ventas/all}">Listado</a></li>
+					<li><a th:href="@{/ventas/new}">Nueva Venta</a></li>
 				</ul>
 			</li>
-			<li><a href="#"> <i class='bx bx-compass'></i> <span
-					class="link_name">Explore</span>
-			</a>
-				<ul class="sub-menu blank">
-					<li><a class="link_name" href="#">Explore</a></li>
-				</ul></li>
-			<li><a th:href="@{cliente/all}"> <i class='bx bx-cog'></i> <span
+			
+			<li><a th:href="@{/cliente/all}"> <i class='bx bx-cog'></i> <span
 					class="link_name">Setting</span>
 			</a>
 				<ul class="sub-menu blank">
-					<li><a class="link_name" href="#">Setting</a></li>
+					<li><a class="link_name" th:href="@{/cliente/all}">Setting</a></li>
 				</ul></li>
 			<li>
 				<div class="profile-details">
+				
 					<div class="profile-content">
+					
 						<!--<img src="image/profile.jpg" alt="profileImg">-->
-						<ion-icon name="person-circle-sharp"
-							style="width:60px; height:50px;  margin-left:25%; color:white; "></ion-icon>
+						<ion-icon class="icono" name="person-circle-sharp"
+							style="width:7opx; height:50px;  margin-left:15%;  "></ion-icon>
+							
 					</div>
 					<div class="name-job">
-						<div class="profile_name">Myriam</div>
-						<div class="job">Administrador</div>
+						<div class="profile_name">[[${#httpServletRequest.remoteUser}]]</div>
+						<div class="job">Administrador <a class="btn btn-dark" th:href="@{/logout}"><ion-icon name="log-out" ></ion-icon>Log Out</a></div>
+						
+						
 					</div>
-					<i class='bx bx-log-out'></i>
+					
 				</div>
+				
 			</li>
 		</ul>
 	</div>

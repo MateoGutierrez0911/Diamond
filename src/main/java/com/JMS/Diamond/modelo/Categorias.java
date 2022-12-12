@@ -1,6 +1,6 @@
 package com.JMS.Diamond.modelo;
 
-import java.io.Serializable;
+
 
 
 import javax.persistence.Column;
@@ -13,8 +13,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name ="categoria")
-public class Categorias  implements Serializable{
-    private static final long serialVersionUID = 1L;
+public class Categorias {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

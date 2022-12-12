@@ -15,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.JMS.Diamond.controlador.dto.UsuarioRegistroDTO;
+import com.JMS.Diamond.modelo.Categorias;
 import com.JMS.Diamond.modelo.Rol;
 import com.JMS.Diamond.modelo.Usuario;
 import com.JMS.Diamond.repositorio.UsuarioRepositorio;
@@ -62,4 +63,8 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 	public List<Usuario> listarUsuarios() {
 		return usuarioRepositorio.findAll();
 	}
+	
+	public Usuario updateUsuario(Usuario usuario) {
+        return usuarioRepositorio.save(usuario);
+    }
 }

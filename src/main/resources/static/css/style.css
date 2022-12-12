@@ -83,6 +83,17 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
+.sidebar .nav-links li .iconohome{
+  height: 25px;
+  min-width: 78px;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 .sidebar .nav-links li.showMenu i.arrow{
   transform: rotate(-180deg);
 }
@@ -164,19 +175,29 @@
 .sidebar .profile-details{
   position: fixed;
   bottom: 0;
-  width: 260px;
+  width: 255px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #1d1b31;
+  background: #ffffff;
   padding: 12px 0;
   transition: all 0.5s ease;
+}
+
+.sidebar .profile-details .icono{
+	width:50px;
+	
 }
 .sidebar.close .profile-details{
   background: none;
 }
 .sidebar.close .profile-details{
   width: 78px;
+  
+}
+.sidebar.close .profile-details .icono{
+	color:#ffffff;	
+
 }
 .sidebar .profile-details .profile-content{
   display: flex;
@@ -196,7 +217,7 @@
 }
 .sidebar .profile-details .profile_name,
 .sidebar .profile-details .job{
-  color: #fff;
+  color: #000000;
   font-size: 18px;
   font-weight: 500;
   white-space: nowrap;
@@ -207,7 +228,7 @@
   display: none;
 }
 .sidebar .profile-details .job{
-  font-size: 12px;
+  font-size: 14px;
 }
 .home-section{
   position: relative;
@@ -216,6 +237,7 @@
   left: 260px;
   width: calc(100% - 260px);
   transition: all 0.5s ease;
+
 }
 .sidebar.close ~ .home-section{
   left: 78px;

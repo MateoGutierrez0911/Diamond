@@ -1,6 +1,6 @@
 package com.JMS.Diamond.modelo;
 
-import java.io.Serializable;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,9 +13,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name ="venta")
-public class Ventas implements Serializable {
+public class Ventas {
 	
-    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,19 +35,12 @@ public class Ventas implements Serializable {
     private double valorTotalVenta;
     
     
-    @ManyToOne
-    @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
-    private Categorias categoria;
-    
+
     @ManyToOne
     @JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
     private Productos productos;
     
    
-    @ManyToOne
-    @JoinColumn(name = "id", referencedColumnName = "id")
-    private Usuario usuarios;
-    
 
     
 	public Ventas() {
@@ -59,18 +51,30 @@ public class Ventas implements Serializable {
 
 
 
+
+
+
+
+
+
+
+
 	public Ventas(Long id_venta, int cantidad, String fechaVenta, String horaVenta, double valorTotalVenta,
-			Categorias categoria, Productos productos, Usuario usuarios) {
+			Productos productos) {
 		super();
 		this.id_venta = id_venta;
 		this.cantidad = cantidad;
 		this.fechaVenta = fechaVenta;
 		this.horaVenta = horaVenta;
 		this.valorTotalVenta = valorTotalVenta;
-		this.categoria = categoria;
 		this.productos = productos;
-		this.usuarios = usuarios;
 	}
+
+
+
+
+
+
 
 
 
@@ -137,16 +141,6 @@ public class Ventas implements Serializable {
 
 
 
-	public Categorias getCategoria() {
-		return categoria;
-	}
-
-
-
-	public void setCategoria(Categorias categoria) {
-		this.categoria = categoria;
-	}
-
 
 
 	public Productos getProductos() {
@@ -161,16 +155,8 @@ public class Ventas implements Serializable {
 
 
 
-	public Usuario getUsuarios() {
-		return usuarios;
-	}
 
-
-
-	public void setUsuarios(Usuario usuarios) {
-		this.usuarios = usuarios;
-	}
-
+	
 
 
 	
