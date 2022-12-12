@@ -52,7 +52,7 @@ public class ReservaControlador {
 	public String updateReservas(@PathVariable Long id, @ModelAttribute("reserva") Reservas reservas, Model modelo) {
 		Reservas reservaExistente = reservaServicio.getReservas(id);
 		reservaExistente.setId_reserva(id);
-		reservaExistente.setProductos(reservas.getProductos());
+
 
 		reservaServicio.updateReservas(reservaExistente);
 		return "redirect:/reservas/all";

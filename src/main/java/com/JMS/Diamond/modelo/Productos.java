@@ -2,6 +2,8 @@ package com.JMS.Diamond.modelo;
 
 
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +13,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name ="productos")
@@ -21,28 +29,40 @@ public class Productos {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name ="id_producto")
 	private Long id_producto;
-	  
+	 
+	@NotNull
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
     @Column(name = "fecha_registro")
-    private String fechaRegistro;
-    
+    private Date fechaRegistro;
+	
+	
+    @NotNull
     @Column(name = "nombre_producto")
     private String nombreInsumo;
+    @NotNull
     
+    @NotNull 
     @Column(name = "descripccion_producto")
     private String descripccionInsumo;
     
-    @Column(name = "precio_producto")
+    @NotNull
+    @DecimalMin(value="1")
+    @Column(name = "precio_producto" )
     private int precioInsumo;
     
+    @NotNull
+    @DecimalMin(value="1")
     @Column(name = "cantidad_disponible")
     private int cantidadDisponible;
     
+    @NotNull
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "fechavencimiento_producto")
-    private String fechaVencimientoInsumo;
+    private Date fechaVencimientoInsumo;
 	
-	@ManyToOne
-	@JoinColumn(name="id_categoria", referencedColumnName ="id_categoria")
-	private Categorias categoria;
+
 	
 	
 	public Productos() {
@@ -50,8 +70,10 @@ public class Productos {
 	}
 
 
-	public Productos(Long id_producto, String fechaRegistro, String nombreInsumo, String descripccionInsumo,
-			int precioInsumo, int cantidadDisponible, String fechaVencimientoInsumo, Categorias categoria) {
+
+
+	public Productos(Long id_producto, @NotNull Date fechaRegistro, String nombreInsumo, String descripccionInsumo,
+			@DecimalMin("1") int precioInsumo, int cantidadDisponible, @NotNull Date fechaVencimientoInsumo) {
 		super();
 		this.id_producto = id_producto;
 		this.fechaRegistro = fechaRegistro;
@@ -60,8 +82,12 @@ public class Productos {
 		this.precioInsumo = precioInsumo;
 		this.cantidadDisponible = cantidadDisponible;
 		this.fechaVencimientoInsumo = fechaVencimientoInsumo;
-		this.categoria = categoria;
 	}
+
+
+
+
+
 
 
 	public Long getId_producto() {
@@ -74,14 +100,20 @@ public class Productos {
 	}
 
 
-	public String getFechaRegistro() {
+
+
+	public Date getFechaRegistro() {
 		return fechaRegistro;
 	}
 
 
-	public void setFechaRegistro(String fechaRegistro) {
+
+
+	public void setFechaRegistro(Date fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
 	}
+
+
 
 
 	public String getNombreInsumo() {
@@ -124,24 +156,18 @@ public class Productos {
 	}
 
 
-	public String getFechaVencimientoInsumo() {
+
+
+	public Date getFechaVencimientoInsumo() {
 		return fechaVencimientoInsumo;
 	}
 
 
-	public void setFechaVencimientoInsumo(String fechaVencimientoInsumo) {
+	public void setFechaVencimientoInsumo(Date fechaVencimientoInsumo) {
 		this.fechaVencimientoInsumo = fechaVencimientoInsumo;
 	}
 
 
-	public Categorias getCategoria() {
-		return categoria;
-	}
-
-
-	public void setCategoria(Categorias categoria) {
-		this.categoria = categoria;
-	}
 
 
 	 

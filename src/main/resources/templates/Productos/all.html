@@ -13,6 +13,9 @@
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
 	rel='stylesheet'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Codigo de icono en pestaña -->
+<link rel="icon" type="image/x-icon" href="assets/innova.ico"/>
 <title>Lista de Productos</title>
 </head>
 <body>
@@ -122,13 +125,11 @@
     <table class="table table-striped table-dark">
         <thead>
         <tr>
-            <th>Id</th>
             <th>Fecha de registro</th>
             <th>Nombre del producto</th>
 			<th>Precio del producto</th>
             <th>Cantidad Disponible</th>
             <th>Fecha de vencimiento</th>
-            <th>Categoria</th>
              <th>Editar</th>
             <th>Eliminar</th>
         </tr>
@@ -136,13 +137,12 @@
         <tbody>
 
         <tr th:each="productos  : ${producto}">
-            <td th:text="${productos.id_producto}"> </td>
             <td th:text="${productos.fechaRegistro}"> </td>
             <td th:text="${productos.nombreInsumo}"> </td>
             <td th:text="${productos.precioInsumo}"> </td>
             <td th:text="${productos.cantidadDisponible}"> </td>
             <td th:text="${productos.fechaVencimientoInsumo}"> </td>
-            <td th:text="${productos.categoria.id_categoria}"> </td>
+ 
            <td>
                 <a class="btn btn-info" th:href="@{/productos/update/{id}(id=${productos.id_producto})} " >Edit</a>
             </td>

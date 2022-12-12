@@ -18,8 +18,8 @@ public class ReservasServicioImp implements ReservasServicio{
 
 	@Override
 	public List<Reservas> ListarReservas() {
-		// TODO Auto-generated method stub
-		return repositorio.findAll();
+		
+		return (List<Reservas>) repositorio.findAll();
 	}
 	
 

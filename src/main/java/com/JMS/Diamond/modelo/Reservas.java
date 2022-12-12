@@ -2,6 +2,8 @@ package com.JMS.Diamond.modelo;
 
 
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="reserva")
@@ -21,35 +29,41 @@ public class Reservas {
 
     private Long id_reserva;
     
+    
+    @NotNull
+    @DecimalMin(value="1")
     @Column (name = "cantidad")
     private int cantidad;
     
-   
+    @NotNull
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
     @Column(name = "fecha_reserva")
-    private String fechaVenta;
+    private Date fechaVenta;
     
+    
+    @NotNull
     @Column(name = "hora_reserva")
     private String horaVenta;
     
+    
+    @DecimalMin(value="1")
     @Column(name = "valorTotal_reserva")
     private double valorTotalVenta;
     
+    @NotNull
     private String direccion;
 
-    @ManyToOne
-    @JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
-    private Productos productos;
-  
-
+    @NotNull
+    private String nombre_producto;
     
     public Reservas() {
 		
 	}
 
-    
-
-	public Reservas(Long id_reserva, int cantidad, String fechaVenta, String horaVenta, double valorTotalVenta,
-			String direccion, Productos productos) {
+	public Reservas(Long id_reserva, @NotNull @DecimalMin("1") int cantidad, @NotNull Date fechaVenta,
+			@NotNull String horaVenta, @DecimalMin("1") double valorTotalVenta, @NotNull String direccion,
+			@NotNull String nombre_producto) {
 		super();
 		this.id_reserva = id_reserva;
 		this.cantidad = cantidad;
@@ -57,10 +71,8 @@ public class Reservas {
 		this.horaVenta = horaVenta;
 		this.valorTotalVenta = valorTotalVenta;
 		this.direccion = direccion;
-		this.productos = productos;
+		this.nombre_producto = nombre_producto;
 	}
-
-
 
 	public Long getId_reserva() {
 		return id_reserva;
@@ -78,11 +90,11 @@ public class Reservas {
 		this.cantidad = cantidad;
 	}
 
-	public String getFechaVenta() {
+	public Date getFechaVenta() {
 		return fechaVenta;
 	}
 
-	public void setFechaVenta(String fechaVenta) {
+	public void setFechaVenta(Date fechaVenta) {
 		this.fechaVenta = fechaVenta;
 	}
 
@@ -110,14 +122,17 @@ public class Reservas {
 		this.direccion = direccion;
 	}
 
-	public Productos getProductos() {
-		return productos;
+	public String getNombre_producto() {
+		return nombre_producto;
 	}
 
-	public void setProductos(Productos productos) {
-		this.productos = productos;
+	public void setNombre_producto(String nombre_producto) {
+		this.nombre_producto = nombre_producto;
 	}
 
+
+
+    
 
     
     

@@ -231,6 +231,10 @@ public class EstilosControl {
 	
 	
 	
+	
+	
+	
+	
 	@GetMapping("@{/productosCliente/all}")
 	public String listasprod() {
 		return "Cliente/productosall";
@@ -239,6 +243,11 @@ public class EstilosControl {
 	@GetMapping("/nosotros")
 	public String Nosotros() {
 		return "Cliente/nosotros";
+	}
+	
+	@GetMapping("@{/ver/{id}")
+	public String Catalogo() {
+		return "Cliente/ver";
 	}
 	
 	

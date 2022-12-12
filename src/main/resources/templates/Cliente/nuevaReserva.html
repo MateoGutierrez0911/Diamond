@@ -25,6 +25,7 @@
 </head>
 <body>
 	
+
 	<div class="sidebar close">
 		<div class="logo-details">
 			<ion-icon name="diamond-sharp"
@@ -44,24 +45,23 @@
 
 			<li>
 				<div class="iocn-link">
-					<a href="#"> <i class='bx bx-book-alt'></i> <span
+					<a th:href="@{/productosCliente/all}"> <i class='bx bx-book-alt'></i> <span
 						class="link_name">Productos</span>
 					</a> <i class='bx bxs-chevron-down arrow'></i>
 				</div>
 				<ul class="sub-menu">
 					<li><a class="link_name" href="#">Productos</a></li>
 					<li><a th:href="@{/productosCliente/all}">Listado</a></li>
-					<li><a th:href="@{/reservasCliente/new}">Realiza una
-							reserva</a></li>
+					
 				</ul>
 			</li>
 
 <li><a th:href="@{/nosotros}" style="height: 50px;">
 					<ion-icon name="home" class="iconohome"></ion-icon> <span
-					class="link_name">Inicio</span>
+					class="link_name">Nosotros</span>
 			</a>
 				<ul class="sub-menu blank">
-					<li><a class="link_name" th:href="@{/nosotros}">Inicio</a></li>
+					<li><a class="link_name" th:href="@{/nosotros}">Nosotros</a></li>
 				</ul></li>
 
 
@@ -91,7 +91,7 @@
 			</li>
 		</ul>
 	</div>
-	<section class="home-section">
+	<section class="home-section" style="width:193vh; height:167vh;">
 		<div class="home-content">
 			<i class='bx bx-menu'></i> <span class="text"></span>
 			
@@ -159,11 +159,10 @@
   </div>
 </div>
 </div>
-<a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Diseñadores</a>
+<a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Desarrolladores</a>
 
-		
-</div>
-<div class="container-fluid">
+		</div>
+<div class="container-fluid" style="height:60%;">
 <div class="text-center"> <h2>Agregar nuevo rol</h2>
   <form th:action="@{/reservasCliente/save}" th:object="${reserva}" method="post"
   style="max-width: 500px; margin: 0 auto;"><br/>
@@ -194,8 +193,8 @@
 
           </div>
           <div class="form-group row">
-              <label class="col-sm-4 col-form-label" >Producto vendido</label>
-             	<input type="text" name="tipo de categoria" th:field="*{productos.id_producto}" />
+              <label class="col-sm-4 col-form-label" >Nombre del producto que desea comprar</label>
+             	<input type="text" name="tipo de categoria" th:field="*{nombre_producto}" />
 
           </div>
           

@@ -1,13 +1,10 @@
 package com.JMS.Diamond.repositorio;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.JMS.Diamond.modelo.Reservas;
 
  
-
-@Repository
-public interface ReservasRepositorio extends JpaRepository<Reservas, Long>{
+public interface ReservasRepositorio extends PagingAndSortingRepository<Reservas, Long>{
 
 }

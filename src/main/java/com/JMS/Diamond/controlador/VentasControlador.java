@@ -49,7 +49,6 @@ public class VentasControlador {
 	public String updateVentas(@PathVariable Long id, @ModelAttribute("venta") Ventas ventas, Model modelo) {
 		Ventas ventaExistente = ventasServicio.getVentas(id);
 		ventaExistente.setId_venta(id);
-		ventaExistente.setProductos(ventas.getProductos());
 
 		ventasServicio.updateVentas(ventaExistente);
 		return "redirect:/ventas/all";
