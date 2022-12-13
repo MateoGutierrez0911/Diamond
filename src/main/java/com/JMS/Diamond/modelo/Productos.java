@@ -62,7 +62,7 @@ public class Productos {
     @Column(name = "fechavencimiento_producto")
     private Date fechaVencimientoInsumo;
 	
-
+ 
 	
 	
 	public Productos() {
@@ -70,19 +70,12 @@ public class Productos {
 	}
 
 
+ 
 
 
-	public Productos(Long id_producto, @NotNull Date fechaRegistro, String nombreInsumo, String descripccionInsumo,
-			@DecimalMin("1") int precioInsumo, int cantidadDisponible, @NotNull Date fechaVencimientoInsumo) {
-		super();
-		this.id_producto = id_producto;
-		this.fechaRegistro = fechaRegistro;
-		this.nombreInsumo = nombreInsumo;
-		this.descripccionInsumo = descripccionInsumo;
-		this.precioInsumo = precioInsumo;
-		this.cantidadDisponible = cantidadDisponible;
-		this.fechaVencimientoInsumo = fechaVencimientoInsumo;
-	}
+
+
+
 
 
 
@@ -166,6 +159,13 @@ public class Productos {
 	public void setFechaVencimientoInsumo(Date fechaVencimientoInsumo) {
 		this.fechaVencimientoInsumo = fechaVencimientoInsumo;
 	}
+
+
+
+
+
+
+
 
 
 

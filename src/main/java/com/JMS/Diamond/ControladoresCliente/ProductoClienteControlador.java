@@ -1,4 +1,4 @@
-package com.JMS.Diamond.ControladorDomiciliario;
+package com.JMS.Diamond.ControladoresCliente;
 
 import java.util.List;
 

@@ -32,7 +32,7 @@
 <body>
 
 
-		<div class="sidebar close">
+	<div class="sidebar close">
 		<div class="logo-details">
 			<ion-icon name="diamond-sharp"
 				style="width:40px; height:40px; margin-left:25%; color:white; margin-top:10%;">
@@ -63,7 +63,7 @@
 			</li>
 
 <li><a th:href="@{/nosotros}" style="height: 50px;">
-					<ion-icon name="home" class="iconohome"></ion-icon> <span
+					<i class='bx bxs-user-rectangle'></i><span
 					class="link_name">Nosotros</span>
 			</a>
 				<ul class="sub-menu blank">
@@ -103,6 +103,7 @@
 			
 	
 
+		
 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
   <div class="modal-dialog modal-dialog modal-xl">
     <div class="modal-content">
@@ -115,9 +116,10 @@
       <div class="col-sm-6">
         <div class="profile-card" style="margin-left:8%;">
     <div class="image">
-      <!--<img src="images/profile.jpg" alt="" class="profile-pic">-->
+      <img src="static/img/user.png" th:src="@{/img/user.png}" style="width:90%;"/>
     </div>
     <div class="data">
+    
       <h2>Mateo Gutierrez</h2>
       <span>Developer & Designer</span>
     </div>
@@ -138,7 +140,7 @@
    
     <div class="profile-card " style="margin-left:8%;">
     <div class="image">
-      <!--<img src="images/profile.jpg" alt="" class="profile-pic">-->
+      <img src="static/img/user.png" th:src="@{/img/user.png}" style="width:90%;"/>
     </div>
     <div class="data">
       <h2>David Castro</h2>
@@ -166,7 +168,9 @@
 </div>
 </div>
 <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Desarrolladores</a>
-
+		
+		
+		
 		</div>
 		
 		<div class="row" style="margin-top:5%;">

@@ -1,7 +1,13 @@
 package com.JMS.Diamond.controlador;
 
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,9 +18,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.JMS.Diamond.Reportes.ProductosExportarEXCEL;
+import com.JMS.Diamond.Reportes.ProductosExportarPDF;
 import com.JMS.Diamond.modelo.Productos;
 import com.JMS.Diamond.servicio.ProductosServicioImp;
-import com.lowagie.text.ImageLoader;
+import com.lowagie.text.DocumentException;
+
+
+
 
 @Controller
 public class ProductoControlador {
@@ -86,4 +97,43 @@ public class ProductoControlador {
 		productoServicio.deleteProductos(id);
 		return "redirect:/productos/all";
 	}
+	
+	
+	@GetMapping("/exportarPDF")
+	public void exportarListadoDeEmpleadosEnPDF(HttpServletResponse response) throws DocumentException, IOException {
+		response.setContentType("application/pdf");
+		
+		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+		String fechaActual = dateFormatter.format(new Date());
+		
+		String cabecera = "Content-Disposition";
+		String valor = "attachment; filename=Empleados_" + fechaActual + ".pdf";
+		
+		response.setHeader(cabecera, valor);
+		
+		List<Productos> productos = productoServicio.ListarProductos();
+		
+		ProductosExportarPDF exporter = new ProductosExportarPDF(productos);
+		exporter.exportar(response);
+	}
+	
+
+	@GetMapping("/exportarExcel")
+	public void exportarListadoDeEmpleadosEnExcel(HttpServletResponse response) throws DocumentException, IOException {
+		response.setContentType("application/octet-stream");
+		
+		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+		String fechaActual = dateFormatter.format(new Date());
+		
+		String cabecera = "Content-Disposition";
+		String valor = "attachment; filename=Empleados_" + fechaActual + ".xlsx";
+		
+		response.setHeader(cabecera, valor);
+		
+		List<Productos> productos = productoServicio.ListarProductos();
+		
+		ProductosExportarEXCEL exporter = new ProductosExportarEXCEL(productos);
+		exporter.exportar(response);
+	}
+	
 }

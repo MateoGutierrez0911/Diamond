@@ -56,7 +56,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	>
 			</li>
 
 <li><a th:href="@{/nosotros}" style="height: 50px;">
-					<ion-icon name="home" class="iconohome"></ion-icon> <span
+					<i class='bx bxs-user-rectangle'></i> <span
 					class="link_name">Nosotros</span>
 			</a>
 				<ul class="sub-menu blank">
@@ -96,6 +96,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	>
 			
 	
 
+		
 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
   <div class="modal-dialog modal-dialog modal-xl">
     <div class="modal-content">
@@ -108,9 +109,10 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	>
       <div class="col-sm-6">
         <div class="profile-card" style="margin-left:8%;">
     <div class="image">
-      <!--<img src="images/profile.jpg" alt="" class="profile-pic">-->
+      <img src="static/img/user.png" th:src="@{/img/user.png}" style="width:90%;"/>
     </div>
     <div class="data">
+    
       <h2>Mateo Gutierrez</h2>
       <span>Developer & Designer</span>
     </div>
@@ -131,7 +133,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	>
    
     <div class="profile-card " style="margin-left:8%;">
     <div class="image">
-      <!--<img src="images/profile.jpg" alt="" class="profile-pic">-->
+      <img src="static/img/user.png" th:src="@{/img/user.png}" style="width:90%;"/>
     </div>
     <div class="data">
       <h2>David Castro</h2>
@@ -159,7 +161,9 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	>
 </div>
 </div>
 <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Desarrolladores</a>
-
+		
+		
+		
 		</div>
 		<div style="margin:5%;" >
 		
@@ -198,6 +202,23 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	>
         </tr>
         </tbody>
         </table>
+             <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 </div>
 
 		

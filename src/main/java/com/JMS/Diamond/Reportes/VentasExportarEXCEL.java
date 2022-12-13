@@ -14,17 +14,19 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.JMS.Diamond.modelo.Productos;
+import com.JMS.Diamond.modelo.Reservas;
+import com.JMS.Diamond.modelo.Ventas;
 
-public class ProductosExportarEXCEL {
+public class VentasExportarEXCEL {
 
 
 	private XSSFWorkbook libro;
 	private XSSFSheet hoja;
 
-	private List<Productos> listaProductos;
+	private List<Ventas> listaVentas;
 
-	public ProductosExportarEXCEL(List<Productos> listaProductos) {
-		this.listaProductos = listaProductos;
+	public VentasExportarEXCEL(List<Ventas> listaVentas) {
+		this.listaVentas = listaVentas;
 		libro = new XSSFWorkbook();
 		hoja = libro.createSheet("Empleados");
 	}
@@ -40,29 +42,29 @@ public class ProductosExportarEXCEL {
 		
 		Cell celda = fila.createCell(0);
 
-		
 		celda = fila.createCell(1);
-		celda.setCellValue("Fecha de registro");
+		celda.setCellValue("Cantidad");
 		celda.setCellStyle(estilo);
 		
 		celda = fila.createCell(2);
-		celda.setCellValue("nombre del Insumo");
+		celda.setCellValue("fecha del pedido"
+				+ "");
 		celda.setCellStyle(estilo);
 		
 		celda = fila.createCell(3);
-		celda.setCellValue("descripcion del Insumo");
+		celda.setCellValue("Hora del pedido");
 		celda.setCellStyle(estilo);
 		
 		celda = fila.createCell(4);
-		celda.setCellValue("Precio del Insumo");
+		celda.setCellValue("Valor total de la reserva");
 		celda.setCellStyle(estilo);
 		
 		celda = fila.createCell(5);
-		celda.setCellValue("cantidad Disponible");
+		celda.setCellValue("dirección");
 		celda.setCellStyle(estilo);
 		
 		celda = fila.createCell(6);
-		celda.setCellValue("fecha Vencimiento Insumo");
+		celda.setCellValue("Nombre del producto");
 		celda.setCellStyle(estilo);
 		
 		
@@ -76,39 +78,38 @@ public class ProductosExportarEXCEL {
 		fuente.setFontHeight(14);
 		estilo.setFont(fuente);
 		
-		for(Productos productos : listaProductos) {
+		for(Ventas ventas : listaVentas) {
 			Row fila = hoja.createRow(nueroFilas ++);
 			
 			Cell celda = fila.createCell(0);
 
-			
 			celda = fila.createCell(1);
-			celda.setCellValue(productos.getFechaRegistro().toString());
+			celda.setCellValue(ventas.getCantidad());
 			hoja.autoSizeColumn(1);
 			celda.setCellStyle(estilo);
 			
 			celda = fila.createCell(2);
-			celda.setCellValue(productos.getNombreInsumo());
+			celda.setCellValue(ventas.getFechaVenta().toString());
 			hoja.autoSizeColumn(2);
 			celda.setCellStyle(estilo);
 			
 			celda = fila.createCell(3);
-			celda.setCellValue(productos.getDescripccionInsumo());
+			celda.setCellValue(ventas.getHoraVenta());
 			hoja.autoSizeColumn(3);
 			celda.setCellStyle(estilo);
 			
 			celda = fila.createCell(4);
-			celda.setCellValue(productos.getPrecioInsumo());
+			celda.setCellValue(ventas.getValorTotalVenta());
 			hoja.autoSizeColumn(4);
 			celda.setCellStyle(estilo);
 			
 			celda = fila.createCell(5);
-			celda.setCellValue(productos.getCantidadDisponible());
+			celda.setCellValue(ventas.getDireccion());
 			hoja.autoSizeColumn(5);
 			celda.setCellStyle(estilo);
 			
 			celda = fila.createCell(6);
-			celda.setCellValue(productos.getFechaVencimientoInsumo().toString());
+			celda.setCellValue(ventas.getNombre_producto());
 			hoja.autoSizeColumn(6);
 			celda.setCellStyle(estilo);
 			

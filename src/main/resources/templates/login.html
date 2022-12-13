@@ -8,7 +8,13 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 	
+	 <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+	
 	<link rel="icon" type="image/x-icon" href="assets/diamond.ico"/>
+	 <!-- Nuestro css-->
+    <link rel="stylesheet" type="text/css" href="static/css/login.css" th:href="@{/css/login.css}">
 </head>
 <body>
 	<header th:fragment="header">
@@ -17,17 +23,13 @@
 
 		</nav>
 	</header>
-	<section class="vh-100" style="background-color: #508bfc;">
-		<div class="container py-5 h-100">
-			<div
-				class="row d-flex justify-content-center align-items-center h-100">
-				<div class="col-12 col-md-8 col-lg-6 col-xl-5">
-					<div class="card shadow-2-strong" style="border-radius: 1rem;">
-						<div class="card-body p-5 text-center">
-
-
-							<h3 class="mb-5">Inicio de sesión</h3>
-							<div th:if="${param.error}">
+	<div class="modal-dialog text-center">
+        <div class="col-sm-8 main-section">
+            <div class="modal-content">
+            <div class="col-12 user-img">
+                    <img src="static/img/user.png" th:src="@{/img/user.png}"/>
+                </div>
+            <div th:if="${param.error}">
 								<div class="alert alert-danger alert-dismissible fade show"
 									role="alert">
 									Usuario o contraseña inválidos
@@ -37,8 +39,8 @@
 									</button>
 								</div>
 							</div>
-
-							<div th:if="${param.logout}">
+                
+                <div th:if="${param.logout}">
 								<div class="alert alert-primary alert-dismissible fade show"
 									role="alert">
 									Ha cerrado sesión exitosamente
@@ -48,49 +50,32 @@
 									</button>
 								</div>
 							</div>
-							<form th:action="@{/login}" method="POST">
-								<div class="form-group">
-
-									<label for="username">Nombre de usuario </label> <input
-										id="username" name="email" type="text"
+                <form class="col-12" th:action="@{/login}" method="POST">
+                    <div class="form-group" id="user-group">
+                        <input id="username" name="email" type="text"
 										class="form-control form-control-lg" required
-										autofocus="autofocus" placeholder=" ">
-
-								</div>
-								<br>
-
-								<div class="form-group">
-
-									<label for="password">Contraseña </label> <input id="password"
+										autofocus="autofocus" placeholder=" "/>
+                    </div>
+                    <div class="form-group" id="contrasena-group">
+                        <input id="password"
 										type="password" name="password"
 										class="form-control form-control-lg" required
-										autofocus="autofocus" placeholder=" ">
-
-								</div>
-								<br>
-
-								<button class="btn btn-primary btn-lg btn-block" type="submit">Iniciar
-									sesión</button>
-
-							</form>
-							<br> <span> ¿No tienes una cuenta? <a
+										autofocus="autofocus" placeholder=" "/>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+                </form>
+                
+                <br>
+                 <span Style="background:white; border-radius:3px;"> ¿No tienes una cuenta? <a
 								th:href="@{/registro}">regístrate aqui</a></span>
 
 
 							<hr class="my-4">
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<header th:fragment="header">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand" href="/login">⠀</a>
-
-		</nav>
-	</header>
+                
+            </div>
+        </div>
+    </div>
+	
 	<footer th:fragment="footer" class="container">
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
