@@ -126,7 +126,6 @@ public class EstilosControl {
 	
 	
 	
-	
 
 	
 	@GetMapping("@{reservas/all}")
@@ -258,8 +257,40 @@ public class EstilosControl {
 	
 	
 	
+
+	@GetMapping("@{/productosDomiciliario/all}")
+	public String listasproductos() {
+		return "Domiciliario/productosall";
+	}
+	
+	
+	@GetMapping("@{/reservasDomiciliario/all}")
+	public String ReservasDomiciliario() {
+		return "Domiciliario/Reservasall";
+	}
+
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	@GetMapping("/nosotrosDomiciliario")
+	public String NosotrosDomiciliario() {
+		return "Domiciliario/nosotros";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+
+
 	
 }

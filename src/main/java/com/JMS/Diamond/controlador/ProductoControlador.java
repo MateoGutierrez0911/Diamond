@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.JMS.Diamond.modelo.Productos;
 import com.JMS.Diamond.servicio.ProductosServicioImp;
+import com.lowagie.text.ImageLoader;
 
 @Controller
 public class ProductoControlador {

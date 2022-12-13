@@ -40,7 +40,7 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 		rol.setId((long) 1);
 		Usuario usuario = new Usuario(registroDTO.getNombre(), 
 				registroDTO.getApellido(),registroDTO.getEmail(),
-				passwordEncoder.encode(registroDTO.getPassword()),Arrays.asList(new Rol("ROLE_USER")));
+				passwordEncoder.encode(registroDTO.getPassword()),Arrays.asList(new Rol("ROLE_DOMICILIARIO")));
 		return usuarioRepositorio.save(usuario);
 	}
 

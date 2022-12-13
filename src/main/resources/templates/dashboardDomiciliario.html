@@ -18,6 +18,7 @@
 <body>
 	
 	
+
 	<div class="sidebar close">
 		<div class="logo-details">
 			<ion-icon name="diamond-sharp"
@@ -25,96 +26,163 @@
 			</ion-icona> <span class="text"></span>
 		</div>
 		<ul class="nav-links">
-		<li><a th:href="@{/index}" style="height:50px;" > <ion-icon name="home" class="iconohome"  ></ion-icon> <span
+			<li><a th:href="@{/dashboardDomiciliario}" style="height: 50px;">
+					<ion-icon name="home" class="iconohome"></ion-icon> <span
 					class="link_name">Inicio</span>
 			</a>
 				<ul class="sub-menu blank">
-					<li><a class="link_name" th:href="@{/index}">Inicio</a></li>
+					<li><a class="link_name" th:href="@{/dashboardDomiciliario}">Inicio</a></li>
 				</ul></li>
 
-			<li>
+<li>
 				<div class="iocn-link">
-					<a href="#"> <i class='bx bx-collection'></i> <span
-						class="link_name">Categorias</span>
-					</a> <i class='bx bxs-chevron-down arrow'></i>
-				</div>
-				<ul class="sub-menu">
-					<li><a class="link_name" href="#">Categorias</a></li>
-					<li><a th:href="@{categorias/all}">Listado</a></li>
-					<li><a th:href="@{categorias/new}">Nueva Categoria</a></li>
-				</ul>
-			</li>
-			<li>
-				<div class="iocn-link">
-					<a href="#"> <i class='bx bx-book-alt'></i> <span
+					<a th:href="@{/productosDomiciliario/all}"> <i class='bx bx-book-alt'></i> <span
 						class="link_name">Productos</span>
 					</a> <i class='bx bxs-chevron-down arrow'></i>
 				</div>
 				<ul class="sub-menu">
 					<li><a class="link_name" href="#">Productos</a></li>
-					<li><a th:href="@{productos/all}">Listado</a></li>
-					<li><a th:href="@{productos/new}">Nuevo Producto</a></li>
+					<li><a th:href="@{/productosDomiciliario/all}">Listado</a></li>
+					
 				</ul>
 			</li>
 
-
-			<li>
+<li>
 				<div class="iocn-link">
-					<a href="#"> <i class='bx bx-grid-alt'></i> <span class="link_name">Reservas</span>
+					<a th:href="@{/reservasDomiciliario/all}"> <i class='bx bx-grid-alt'></i> <span class="link_name">Reservas</span>
 					</a> <i class='bx bxs-chevron-down arrow'></i>
 				</div>
 				<ul class="sub-menu">
 					<li><a class="link_name" href="#">Reservas</a></li>
-					<li><a th:href="@{reservas/all}">Listado</a></li>
-					<li><a th:href="@{reservas/new}">Nueva Reserva</a></li>
+					<li><a th:href="@{/reservasDomiciliario/all}">Listado</a></li>
+
 				</ul>
 			</li>
-			
-				<li>
-				<div class="iocn-link">
-					<a href="#"> <i class='bx bx-collection'></i> <span
-						class="link_name">Ventas</span>
-					</a> <i class='bx bxs-chevron-down arrow'></i>
-				</div>
-				<ul class="sub-menu">
-					<li><a class="link_name" href="#">Ventas</a></li>
-					<li><a th:href="@{ventas/all}">Listado</a></li>
-					<li><a th:href="@{ventas/new}">Nueva Venta</a></li>
-				</ul>
-			</li>
-			
-			<li><a th:href="@{cliente/all}"> <i class='bx bx-cog'></i> <span
-					class="link_name">Setting</span>
+
+<li><a th:href="@{/nosotrosDomiciliario}" style="height: 50px;">
+					<ion-icon name="home" class="iconohome"></ion-icon> <span
+					class="link_name">Nosotros</span>
 			</a>
 				<ul class="sub-menu blank">
-					<li><a class="link_name" href="#">Setting</a></li>
+					<li><a class="link_name" th:href="@{/nosotrosDomiciliario}">Nosotros</a></li>
 				</ul></li>
+
+
+
 			<li>
 				<div class="profile-details">
-				
+
 					<div class="profile-content">
-					
+
 						<!--<img src="image/profile.jpg" alt="profileImg">-->
 						<ion-icon class="icono" name="person-circle-sharp"
 							style="width:7opx; height:50px;  margin-left:15%;  "></ion-icon>
-							
+
 					</div>
 					<div class="name-job">
 						<div class="profile_name">[[${#httpServletRequest.remoteUser}]]</div>
-						<div class="job">Domiciliario <a class="btn btn-dark" th:href="@{/logout}"><ion-icon name="log-out" ></ion-icon>Log Out</a></div>
-						
-						
+						<div class="job">
+							Usuario <a class="btn btn-dark" th:href="@{/logout}"><ion-icon
+									name="log-out"></ion-icon>Log Out</a>
+						</div>
+
+
 					</div>
-					
+
 				</div>
-				
+
 			</li>
 		</ul>
 	</div>
-	<section class="home-section">
+	<section class="home-section" style="width:193vh; height:167vh;">
 		<div class="home-content">
 			<i class='bx bx-menu'></i> <span class="text"></span>
+			
+	
+
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Desarrolladores</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="row">
+      <div class="col-sm-6">
+        <div class="profile-card" style="margin-left:8%;">
+    <div class="image">
+      <!--<img src="images/profile.jpg" alt="" class="profile-pic">-->
+    </div>
+    <div class="data">
+      <h2>Mateo Gutierrez</h2>
+      <span>Developer & Designer</span>
+    </div>
+    <div class="row">
+      <div class="info">
+        <h3>Age</h3>
+        <span>21</span>
+      </div>
+      
+    <div class="buttons">
+      <a href="#" class="btn">Message</a>
+      <a href="#" class="btn">Follow Me</a>
+    </div>
+  </div>     
+   </div>
+   </div>
+         <div class="col-sm-6">
+   
+    <div class="profile-card " style="margin-left:8%;">
+    <div class="image">
+      <!--<img src="images/profile.jpg" alt="" class="profile-pic">-->
+    </div>
+    <div class="data">
+      <h2>David Castro</h2>
+      <span>Tester & Developer</span>
+    </div>
+    <div class="row">
+      <div class="info">
+        <h3>Age</h3>
+        <span>25</span>
+      </div>
+      
+    <div class="buttons">
+      <a href="#" class="btn">Message</a>
+      <a href="#" class="btn">Follow Me</a>
+    </div>
+  </div>     
+   </div>
+   </div>
+   </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Desarrolladores</a>
+
 		</div>
+		
+		<div class="row" style="margin-top:5%; margin-left:3%; ">
+		<div class="col-md-3"></div>
+
+		<div class="col-md-7">
+  
+  
+  <div class="card" style="width: 25rem; background:none;">
+  <img src="/img/Bienvenido.png" class="card-img-top img1" alt="...">
+  <div class="card-body" style="background:white;">
+    <h5 class="card-title mt-3" style="text-align:center; "  >Bienvenido Domiciliario</h5>
+    <hr>
+ 
+  </div>
+</div>
+  </div>
+		  <div class="col-md"></div>
+</div>
 	</section>
 	<script>
   let arrow = document.querySelectorAll(".arrow");

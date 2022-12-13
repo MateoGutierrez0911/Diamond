@@ -121,7 +121,6 @@
     <table class="table table-striped table-dark">
         <thead>
         <tr>
-            <th>Id</th>
             <th>Fecha de registro</th>
             <th>Nombre del producto</th>
 			<th>Precio del producto</th>
@@ -142,10 +141,10 @@
             
             <td th:text="${venta.productos.id_producto}"> </td>
           
-           <td>
+           <td sec:authorize="hasRole('ADMIN')">
                 <a class="btn btn-info" th:href="@{/ventas/update/{id}(id=${venta.id_venta})} " >Edit</a>
             </td>
-            <td>
+            <td sec:authorize="hasRole('ADMIN')">
                 <a class="btn btn-danger" th:href="@{/ventas/delete/{id}(id=${venta.id_venta})}">Delete</a>
             </td>
         </tr>

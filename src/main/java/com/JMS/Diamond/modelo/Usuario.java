@@ -30,9 +30,10 @@ public class Usuario {
 	@NotNull
 	@Column(name = "apellido")
 	private String apellido;
-
+	@NotNull
 	@Email
 	private String email;
+	@NotNull
 	private String password;
 	
 	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
